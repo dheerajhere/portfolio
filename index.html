@@ -1,0 +1,826 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- <link rel="stylesheet" href="style.css"> -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
+        integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+    <!-- <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat+Alternates:ital@0;1&family=Roboto:wght@300;400&display=swap" rel="stylesheet"> -->
+    <!-- font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+        }
+
+        /* section{
+    position: relative;
+    width: 100%;
+    min-height: 1vh;
+    padding: 100px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+} */
+        header {
+            /* position: fixed; */
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 20px 100px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000; 
+            /* position: fixed; */
+        }
+        html {
+  scroll-behavior: smooth;
+}
+        .navigationn {
+            z-index: 100;
+        }
+
+        header .logo {
+            position: relative;
+            color: #ffc107;
+            padding: 2px 5px;
+            border-radius: 14px;
+            display: inline-block;
+            font-size: 2rem;
+            text-decoration: none;
+            font-weight: 200;
+            animation: slide_left 0.7s linear forwards;
+            animation-delay: 0.9s;
+            opacity: 0;
+        }
+
+        @keyframes slide_left {
+            0% {
+                transform: translateX(-120px);
+                opacity: 0;
+            }
+
+            100% {
+                transform: translateX(0px);
+                opacity: 1;
+            }
+        }
+
+        header ul {
+            position: relative;
+            display: flex;
+        }
+
+        header ul li {
+            list-style: none;
+        }
+
+        header ul li a {
+            display: inline-block;
+            color: #ffc107;
+            background-color: #fff;
+            font-weight: 200;
+            font-size: 1.1rem;
+            margin-left: 12px;
+            display: inline-block;
+            padding: 8px 18px;
+            text-decoration: none;
+            transition: all 0.4s linear;
+            opacity: 0;
+            animation: slide_right 0.7s linear forwards;
+            animation-delay: 0.9s;
+        }
+
+        @keyframes slide_right {
+            0% {
+                transform: translatex(120px);
+                opacity: 0;
+            }
+
+            100% {
+                transform: translatex(0px);
+                opacity: 1;
+            }
+        }
+
+        header ul li a:hover {
+            color: white;
+            background-color: #ffc107;
+            border-radius: 30px;
+            text-decoration: none;
+
+        }
+
+        .active {
+            background: #ffc107;
+            color: white;
+            border-radius: 30px;
+        }
+
+        /* responsive */
+        @media (max-width: 991px) {
+
+            /* section{
+        padding: 0px 20px;
+        padding-top: 220px;
+        padding-bottom: 20px;
+    } */
+            header {
+                padding: 20px;
+            }
+
+            .navigationn {
+                display: none;
+            }
+
+            .navigationn.active {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: #fff;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+            }
+
+            .icons img {
+                width: 30px;
+            }
+
+            header .logo {
+                font-size: 1.6rem;
+            }
+
+            header ul li {
+                margin: 10px 0px;
+            }
+
+            header ul li a {
+                margin-left: 0;
+            }
+
+            .toggle {
+                /* position: fixed; */
+                top: 20px;
+                right: 20px;
+                height: 40px;
+                width: 40px;
+                font-size: 30px;
+                cursor: pointer;
+                z-index: 1000;
+            }
+
+        }
+
+        /* home */
+        .banner {
+            position: relative;
+            /* background: url(IMG_0595.jpeg); */
+             min-height: 100vh; 
+            /* background-size: cover; */
+            background-position:center;
+            padding: 50px 0 50px;
+           
+        }
+        .banner-col{
+            animation: slide_left 0.7s linear forwards;
+            animation-delay: 0.9s;
+            opacity: 0;
+        }
+        .hello h2 {
+            font-size: 40px;
+            padding-bottom: 10px;
+        }
+
+        .hello p {
+            font-size: 17px;
+        }
+
+        .hello span {
+            font-size: 40px;
+        }
+
+        .head {
+            font-family: 'Quicksand', sans-serif;
+        }
+
+        /* service */
+        .icon {
+            margin-bottom: 1rem;
+            border: 5px solid #ffc107;
+            border-radius: 10px;
+            padding: 8px;
+        }
+
+        /* .course-box{
+    width: 500px;
+} */
+        .course-box h5 {
+            font-size: 25px;
+        }
+
+        .course-box p {
+            font-size: 17px;
+            color: gray;
+        }
+
+        .btnn2 {
+            border-bottom: 1px solid #ffc107;
+        }
+
+        .btnn2:hover {
+            border: 2px solid #ffc107;
+
+        }
+
+        /* about */
+        .about {
+            width: 100%;
+            height: 500px;
+            margin: 510px 0 0 auto;
+            background-color: white;
+
+        }
+
+        .abt1 {
+            width: calc(((100% - 1140px) / 2) + 640px);
+            height: 500px;
+            background-color: #ffc107;
+            margin: -536px auto 0 0;
+            box-shadow: 5px 5px 20px 0 rgb(0 0 0 / 40%);
+        }
+
+        .abt4 {
+            width: calc(((100% - 1140px) / 2) + 640px);
+            height: 481px;
+            background-color: #ffc107;
+            float: right;
+            margin: -530px auto 0 0;
+
+        }
+
+        .abt2 {
+            height: 560px;
+            width: 296px;
+            padding-top: 1.8rem;
+            background-color: white;
+            margin: -186px calc(((100% - 1140px) / 2) + 381px) 0 auto;
+            position: relative;
+            box-shadow: 5px 5px 20px 0 rgb(0 0 0 / 40%);
+            border-radius: 14px;
+
+        }
+
+        .abt3 {
+
+            min-height: 390px;
+            width: 610px;
+            box-shadow: 5px 5px 20px 0 rgb(0 0 0 / 40%);
+            margin: -403px calc(((100% - 1140px) / 2)) 60px auto;
+            position: relative;
+
+        }
+
+        .abtimg {
+            width: 598px;
+            /* height: 593px; */
+            margin: -358px auto 0 calc(((100% - 1140px) / 2) + 119px);
+            box-shadow: 5px 5px 20px 0 rgb(0 0 0 / 40%);
+
+        }
+
+        .abt2 h1 {
+            font-size: 40px;
+            margin-top: 4rem;
+            color: #ffc107;
+        }
+
+        .abt {
+            background-color: #ffffff;
+            min-height: 980px;
+        }
+
+        /* work */
+        .work {
+            position: relative;
+            background: url(work.jpg);
+            display: block;
+            min-height: 100vh;
+            filter: grayscale(20%);
+            background-size: cover;
+            background-position: center;
+            padding: 90px 0 10px;
+            z-index: 5;
+        }
+
+        .workhead h1 {
+            font-size: 40px;
+        }
+
+        .hello h2 {
+            font-size: 40px;
+            padding-bottom: 10px;
+        }
+
+        .hello p {
+            font-size: 17px;
+        }
+
+        .hello span {
+            font-size: 40px;
+        }
+
+        .head {
+            font-family: 'Quicksand', sans-serif;
+        }
+
+        .worksec {
+            min-height: 770px;
+            display: flex;
+            flex-direction: column;
+            margin: 0 auto;
+        }
+
+        .content {
+            margin-top: 104px;
+        }
+
+        .columns {
+            /* display: grid;
+    grid-template-columns: repeat(4, calc(25% - 7.5px));
+    min-height: 310px;
+    grid-gap: 10px; */
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            align-items: center;
+        }
+
+        @media (max-width: 1160px) {
+            .columns {
+                flex-direction: column;
+            }
+
+            .column {
+                margin-bottom: 20px;
+            }
+
+            .col {
+                width: 80%;
+            }
+
+            .pr-img {
+                display: none;
+            }
+        }
+
+
+        .column {
+            background-color: transparent;
+            opacity: 1;
+            color: white;
+            position: relative;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .column::before {
+            background-color: #000000;
+            color: #fff;
+            content: "";
+            display: block;
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            opacity: 0.8;
+        }
+
+        .col {
+            padding: 30px;
+            /* padding-right: 160px; */
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+        }
+
+        .col h1 {
+            color: #ffc107;
+            font-size: 2rem;
+            font-weight: 500;
+        }
+
+        .col li {
+            list-style: none;
+            font-size: 1.1rem;
+            padding-top: 15px;
+        }
+
+        .col li i {
+            color: #ffc107;
+            margin-right: 8px;
+        }
+
+        /* team */
+        .team-font {
+            font-size: 50px;
+        }
+
+        .sub-tittle-team {
+            font-size: 1rem;
+            color: #ffc107;
+        }
+
+        .teams {
+            background-color: rgb(226, 226, 226);
+            margin-top: 0;
+        }
+
+        /* project */
+
+        .project-inner {
+            min-height: 812px;
+            /* margin: 0 270px; */
+            position: relative;
+            overflow: hidden;
+        }
+
+        .pr1 {
+            margin: 38px auto 0 0;
+            width: 430px;
+            height: 560px;
+            color: white;
+            background-color: #ffc107;
+            position: relative;
+        }
+
+        .pr2 {
+            width: 780px;
+            height: 673px;
+            margin: -595px 0 0 auto;
+            background-color: #292d33;
+            position: relative;
+        }
+
+        .pr-img {
+            width: 488px;
+            height: 656px;
+            object-position: 50% 50%;
+            margin: -579px auto 0 82px;
+            position: relative;
+            object-fit: cover;
+            /* display: block; */
+            background-size: cover;
+            background-position: 50% 50%;
+            background-repeat: no-repeat;
+            box-shadow: 0 0 25px 0 rgb(0 0 0 / 30%);
+            z-index: 20;
+        }
+
+        .pr3 {
+            width: 348px;
+            min-height: 537px;
+            margin: -656px 80px 60px auto;
+            background-color: #292d33;
+            position: relative;
+            padding-left: 23px;
+            padding-right: 10px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            z-index: 12;
+        }
+
+        .btnn {
+            font-size: 22px;
+            background-color: transparent;
+            border: 2px solid #ffc107;
+            color: white;
+            padding: 10px;
+        }
+
+        .btnn:hover {
+            background-color: #ffc107;
+            border-radius: 10px;
+        }
+
+        .pr3 h1 {
+            font-size: 65px;
+        }
+
+        /* form */
+        #contact{
+    height: 650px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color:#292d33;
+    color: white;
+    flex-direction: row;
+    font-weight: 800;
+}
+@media (max-width:1160px) {
+    #contact{
+        flex-direction: column;
+    }
+    .map{
+        height: 2px;
+    }
+}
+
+form{
+    display: flex;
+    flex-flow: column;
+    background-color: #ffc107;
+    padding: 27px 56px;
+}
+::placeholder{
+    color: rgb(187, 187, 187);
+}
+input{
+    font-size: 18px;
+    border: 2px solid white;
+    color: white;
+    padding: 15px 10px;
+    margin: 13px 0px;
+    border: none;
+    border-bottom: 2px solid white;
+    background-color: transparent;
+    text-transform: uppercase;
+    
+}
+textarea{
+    background-color:#ffc107 ;
+    border: none;
+    border-bottom: 2px solid white;
+    color: white;
+    font-size: 18px;
+    padding: 15px 10px;
+    margin: 13px 0px;
+    text-transform: uppercase;
+}
+.map{
+    margin-top:-470px ;
+    margin-left: 90px;
+    height: 10px;
+}
+.map h1{
+    text-transform: uppercase;
+}
+.pastry{
+position: relative;
+border-top: 1px solid gray;
+padding-top: 40px;
+}
+/* animations */
+.cb1{
+    animation: slide_left 0.7s linear forwards;
+            animation-delay: 0.9s;
+            opacity: 0;
+}
+.cb2{
+    animation: slide_right 0.7s linear forwards;
+            animation-delay: 0.9s;
+            opacity: 0;
+}
+    </style>
+</head>
+
+<body>
+    <section>
+        <header>
+            <a href="#" class="logo"><span><i class="fas fa-code "></i></span> Dheeraj Designs</a>
+            <div class="toggle"><i class="fas fa-bars"></i></div>
+            <ul class="navigationn">
+                <li><a href="#HOME" style="--i:1;" class="active">HOME</a></li>
+                <li><a href="#Services" style="--i:2;">SERVICES</a></li>
+                <li><a href="#About" style="--i:3;">ABOUT US</a></li>
+                <li><a href="#contact" style="--i:5;">CONTACT US</a></li>
+            </ul>
+        </header>
+    </section>
+    <section class="banner" id="Home">
+        <div class="container">
+            <div class="row">
+                <div class="banner-col col-sm-6  hello p-5 ">
+                    <span><i class="text-warning fas fa-laptop-code  "></i></span>
+                    <h1 class="text-warning head font-weight-bold display-3 py-4">Dheeraj Designs</h1>
+                    <div class="container font-weight-light">
+                    <h4>A little bit about me, let's see. I'm Dheeraj a Web and graphic designer with a passion for creativity,</h4>
+                    <h4>I work from the user experience to the visual details and then transform these in working code.</h4>
+                    <h4>Minimal designer and I really like the simple and elegant style.</h4>
+                    <button class="btn btn-outline-warning btn-lg"><a class ="text-warning"href="Resume-Dheeraj-Singh.jpg"download="image">Download</a></button>
+                </div>
+
+                </div>
+                <div class="banner-col container col-sm-6  hello">
+                    <img src="IMG_0595.jpeg" class="img-fluid" alt="Responsive image">
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- services -->
+    <section id="Services" class=" bg-light course pt-4  py-5 d-flex flex-wrap flex-column justify-content-center align-items-center">
+        <h5 class="text-warning brand font-weight-bold">WHAT I PROVIDE</h5>
+        <h1 class="font-weight-bolder">SERVICES</h1>
+        <div class="course-inner d-flex flex-wrap flex-row justify-content-center align-items-center">
+            <div class=" bg-light course-left d-flex flex-wrap flex-column justify-content-center align-items-center">
+                <div class="course-box cb1 #cb bg-white shadow mx-1 p-lg-5 p-4 my-3">
+                    <span><i class=" text-warning icon fas fa-laptop-code fa-2x"></i></span>
+                    <h5 class="font-weight-bolder">Website Designing</h5>
+                    <p>Sample text. Click to select the text box. Click again or double click to start editing the text.
+                        Excepteur sint occaecat cupidatat non proident.</p>
+                    <button class="btn btnn2  bg-white  text-warning">READ MORE</button>
+                </div>
+                <div class="course-box cb2 bg-white shadow mx-1 p-lg-5 p-4 my-3">
+                    <span><i class="text-warning fas fa-mobile-alt fa-2x icon"></i></span>
+                    <h5 class="font-weight-bolder ">Mobile Development</h5>
+                    <p class=" ">Sample text. Click to select the text box. Click again or double click to start editing
+                        the text. Excepteur sint occaecat cupidatat non proident.</p>
+                    <button class="btn btnn2    text-warning">READ MORE</button>
+                </div>
+                <div class="course-box cb1 #cb bg-white shadow mx-1 p-lg-5 p-4 my-3">
+                    <span><i class="text-warning fas fa-users fa-2x icon"></i></span>
+                    <h5 class="font-weight-bolder">Software Consulting</h5>
+                    <p>Sample text. Click to select the text box. Click again or double click to start editing the text.
+                        Excepteur sint occaecat cupidatat non proident.</p>
+                    <button class="btn btnn2  bg-white   text-warning">READ MORE</button>
+                </div>
+                <div class="course-box cb2 bg-white mx-1 p-lg-5 shadow p-4 my-3">
+                    <span><i class=" text-warning icon far fa-file-excel fa-2x"></i></span>
+                    <h5 class="font-weight-bolder">Professional Team</h5>
+                    <p>Sample text. Click to select the text box. Click again or double click to start editing the text.
+                        Excepteur sint occaecat cupidatat non proident.</p>
+                    <button class="btn btnn2  bg-white  text-warning">READ MORE</button>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- about -->
+    <section id="About" class="abt">
+        <div class="about">
+            <div class="container abt1"></div>
+
+
+            <div class="abtimg">
+                <img class="img-fluid" src="startup.jpg" alt="">
+            </div>
+
+            <div class="abt2 ">
+                <div class="container d-flex justify-content-center p-lg-5 flex-column text-warning">
+                    <h5>ABOUT DIGITAL AGENCY</h5>
+                    <h1>Strategy, design, content and technology</h1>
+                </div>
+            </div>
+            <div class="container abt4"></div>
+            <!-- <div class="abt3 bg-dark ">
+        <div class="container d-flex justify-content-center p-lg-5 flex-column text-light">
+            <h5>ABOUT DIGITAL AGENCY</h5>
+            <h1>Strategy, design, content and technology</h1>
+        </div>
+    </div> -->
+        </div>
+    </section>
+    <!-- work -->
+    <section class="work">
+        <div class="worksec">
+            <div class="container workhead">
+                <h1 class="text-white">I work with user research, UX design, UI and engineering</h1>
+            </div>
+            <div class="content">
+                <div class="columns">
+                    <div class="column">
+                        <div class="col">
+                            <h1>Design</h1>
+                            <ul>
+                                <li><i class="fas fa-plus"></i> Product Mockup</li>
+                                <li><i class="fas fa-plus"></i> Branding</li>
+                                <li><i class="fas fa-plus"></i> Illustrations</li>
+                                <li><i class="fas fa-plus"></i> UI/UX</li>
+                                <li><i class="fas fa-plus"></i> Websites</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="column">
+                        <div class="col">
+                            <h1>Web Design</h1>
+                            <ul>
+                                <li><i class="fas fa-plus"></i> Propotype</li>
+                                <li><i class="fas fa-plus"></i> UI/UX</li>
+                                <li><i class="fas fa-plus"></i> Content Writing</li>
+                                <li><i class="fas fa-plus"></i> Website Hosting</li>
+                                <li><i class="fas fa-plus"></i> Website Analysis</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="column">
+                        <div class="col">
+                            <h1>Development</h1>
+                            <ul>
+                                <li><i class="fas fa-plus"></i> WordPress</li>
+                                <li><i class="fas fa-plus"></i> Application Devloment</li>
+                                <li><i class="fas fa-plus"></i> Front-end</li>
+                                <li><i class="fas fa-plus"></i> Javascript</li>
+                                <li><i class="fas fa-plus"></i> Brand equity audit</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="column">
+                        <div class="col">
+                            <h1>Branding</h1>
+                            <ul>
+                                <li><i class="fas fa-plus"></i> Brand equity audit</li>
+                                <li><i class="fas fa-plus"></i> Audience Analysis</li>
+                                <li><i class="fas fa-plus"></i> Competitive review</li>
+                                <li><i class="fas fa-plus"></i> Strategic direction</li>
+                                <li><i class="fas fa-plus"></i> Visual positioning</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="project container">
+        <div class="project-inner">
+            <div class="pr1"></div>
+            <div class="pr2"></div>
+            <img class="pr-img img-fluid" src="ffff.jpg" alt="">
+            <div class="pr3 text-white">
+                <h1>Got a project?</h1>
+                <h1>Let's Talk</h1>
+                <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+                    pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt.</p>
+                <button class="btnn">CONTACT US</button>
+            </div>
+        </div>
+    </section> 
+    <!-- form -->
+    <div id="contact">
+        <div class="form">
+            <h2> FREE TO ASK ANYTHING!!</h2>
+            <form action="#">
+                <input type="text" name="name" id="name" placeholder="name">
+                <input type="email" name="email" id="email" placeholder="email">
+                <textarea name="message" id="" cols="30" rows="10" placeholder="message"></textarea>
+                <button class="btn btn-dark">SEND MESSAGE</button>
+            </form>
+            
+        </div>
+
+
+        <!-- <div class="map">
+            <h1>Where you can find us ?</h1>
+            <h3> WZ-201 KRISHNAPURI EXT. STREET NO.1 FIRST FLOOR</h3>
+            <div class="pastry">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3501.6733124752654!2d77.08010231505072!3d28.63955169051405!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d04948536df2f%3A0x8f1bf358ef2bac47!2sPastry%20Palace!5e0!3m2!1sen!2sin!4v1622727875122!5m2!1sen!2sin" width="500" height="350" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+        </div> -->
+    </div>
+    <div class="footer d-flex flex-wrap justify-content-around align-items-center p-2 ">
+        <a href="https://www.instagram.com/dheeraj__r1/" target="_blank"><Button class="btn btn-outline-danger btn-lg"><i class="fab fa-instagram"></i> Instagram</Button></a>
+        <a href="" target="_blank"><Button class="btn btn-outline-primary btn-lg"><i class="fab fa-facebook"></i> Facebook</Button></a>
+        <a href="https://github.com/dheerajhere" target="_blank"> <Button class="btn btn-outline-dark btn-lg"><i class="fab fa-github"></i> Github </Button></a>
+        <a href="https://www.linkedin.com/in/dheeraj-singh-4a88191a9/" target="_blank"><Button class="btn btn-outline-primary btn-lg"><i class="fab fa-linkedin"></i> Linkedin</Button></a>
+    </div>
+
+
+    <script>
+        const menutoggle = document.querySelector('.toggle');
+        const navigationn = document.querySelector('.navigationn');
+        menutoggle.onclick = function () {
+            menutoggle.classList.toggle('active');
+            navigationn.classList.toggle('active');
+        }
+       
+    </script>
+</body>
+
+</html>
